@@ -1,3 +1,9 @@
+# -*- encoding: utf-8 -*-
+"""
+The project was created on May 28, 2025
+by @Temn1yKot
+the project was created for fun
+"""
 import inspect
 import os
 

@@ -4,12 +4,10 @@ import os
 def get_importing_file():
     stack = inspect.stack()
     try:
-        # Идём по стеку СВЕРХУ ВНИЗ (от последнего вызова к первому)
         for frame_info in reversed(stack):
             frame = frame_info.frame
             filename = frame.f_code.co_filename
 
-            # Пропускаем технические файлы и текущий модуль
             if (not filename.startswith('<')
                 and os.path.exists(filename)
                 and not os.path.samefile(filename, __file__)):
@@ -30,13 +28,13 @@ def activate():
         for i in file_.split('\n'):
             if 'eminem' in i.strip().lower() and not 'import eminem_detector' and 'eminem_detector.activate()' in i.strip().lower():
                 exit(f'''\tFile "{file}", line {len(i.split('\n'))}\n{i.strip()}\n{'~' * int(len(i.strip().lower().split('eminem')[0])) + '^' * len("Eminem") + '~' * int(len(i.strip().lower().split('eminem')[1]))}\nFlowError: Eminem has very big and strong flow, it is against your code running''')
-            elif any(s in i.lower() for s in songs):  # song's flow
+            elif any(s in i.lower() for s in songs):
                 s_found = next(s for s in songs if s in i.lower())
                 exit(
                     f'''\tFile "{file}"\n{i.strip()}\n{'~' * len(i.strip().lower().split(s_found)[0]) + '^' * len(s_found) + '~' * len(i.strip().lower().split(s_found)[1])}\nFlowError: Too many very strong flow''')
             elif "mgk" in i.lower():
                 exit(f'''\tFile "{file}"\n{i.strip()}\n{'~' * int(len(i.strip().lower().split('mgk')[0])) + '^' * len("mgk") + '~' * int(len(i.strip().lower().split('mgk')[1]))}\nFlowError: Python is against code being run with the world's worst rapper''')
-            elif any(s in i.lower() for s in bad_words):  # rasizm
+            elif any(s in i.lower() for s in bad_words):
                 s_found = next(s for s in bad_words if s in i.lower())
                 exit(f'''\tFile "{file}"\n{i.strip()}\n{'~' * len(i.strip().lower().split(s_found)[0]) + '^' * len(s_found) + '~' * len(i.strip().lower().split(s_found)[1])}\nCondemnError: Python is against such words and condemns them, so it will not let your code run.''')
             else:

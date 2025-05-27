@@ -4,10 +4,12 @@ import os
 def get_importing_file():
     stack = inspect.stack()
     try:
+        # Идём по стеку СВЕРХУ ВНИЗ (от последнего вызова к первому)
         for frame_info in reversed(stack):
             frame = frame_info.frame
             filename = frame.f_code.co_filename
 
+            # Пропускаем технические файлы и текущий модуль
             if (not filename.startswith('<')
                 and os.path.exists(filename)
                 and not os.path.samefile(filename, __file__)):

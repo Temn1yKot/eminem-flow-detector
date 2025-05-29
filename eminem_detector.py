@@ -24,7 +24,7 @@ def get_importing_file():
 
 file = get_importing_file()
 
-songs = 'not alike', 'without me', 'the real slim shady', 'killshot', 'killer', 'we made you', 'kill you', 'just lose it', '3am', '3 am', '3 a.m.', '3a.m.', 'berzerk', 'offended', 'guilty conscience', 'rap god', 'the ringer'
+songs = 'not alike', 'without me', 'the real slim shady', 'killshot', 'killer', 'we made you', 'kill you', 'just lose it', '3am', '3 am', '3 a.m.', '3a.m.', 'berzerk', 'offended', 'guilty conscience', 'rap god', 'the ringer', 'higher', 'who knew', 'criminal', 'kill you', 'bad one', 'licifer', 'the way i am'
 bad_words = 'niger', 'nigga', 'nigger', 'niggers', 'niggas', 'nigas'
 
 def activate():

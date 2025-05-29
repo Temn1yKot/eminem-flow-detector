@@ -33,7 +33,7 @@ def activate():
         code = ''
         for i in file_.split('\n'):
             if 'eminem' in i.lower() and not 'import eminem_detector' in i.strip().lower() and not 'eminem_detector.activate()' in i.strip().lower():
-                exit(f'''\tFile "{file}", line {len(code.split('\n'))}\n{i.strip()}\n{i.strip()}\n{'~' * int(len(i.strip().lower().split('eminem')[0])) + '^' * len("Eminem") + '~' * int(len(i.strip().lower().split('eminem')[1]))}\nFlowError: Eminem has very big and strong flow, it is against your code running''')
+                exit(f'''\tFile "{file}", line {len(code.split('\n'))}\n{i.strip()}\n{'~' * int(len(i.strip().lower().split('eminem')[0])) + '^' * len("Eminem") + '~' * int(len(i.strip().lower().split('eminem')[1]))}\nFlowError: Eminem has very big and strong flow, it is against your code running''')
             elif any(s in i.lower() for s in songs):
                 s_found = next(s for s in songs if s in i.lower())
                 exit(f'''\tFile "{file}", line {len(code.split('\n'))}\n{i.strip()}\n{'~' * len(i.strip().lower().split(s_found)[0]) + '^' * len(s_found) + '~' * len(i.strip().lower().split(s_found)[1])}\nFlowError: Too many very strong flow''')
